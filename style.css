@@ -119,6 +119,7 @@ body {
     height: 3px;
     background: #0f172a;
     border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
 /* Hero */
@@ -317,6 +318,10 @@ body {
     padding: 28px;
     border-radius: 20px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+.feature:hover {
+    transform: translateY(-5px);
 }
 .feature i {
     font-size: 2.5rem;
@@ -340,6 +345,10 @@ body {
     border-radius: 24px;
     max-width: 350px;
     font-style: italic;
+    transition: transform 0.3s ease;
+}
+.testimonial:hover {
+    transform: translateY(-5px);
 }
 .testimonial .author {
     margin-top: 20px;
@@ -381,6 +390,12 @@ body {
     border-radius: 40px;
     border: 1px solid #cbd5e1;
     font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+.contact-form input:focus, .contact-form select:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
 }
 .form-note {
     font-size: 0.8rem;
@@ -409,11 +424,21 @@ footer {
     color: #cbd5e1;
     text-decoration: none;
     line-height: 2;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #0066cc;
 }
 .social-icons a {
     color: white;
     font-size: 1.5rem;
     margin-right: 15px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+.social-icons a:hover {
+    color: #0066cc;
+    transform: translateY(-3px);
 }
 .footer-bottom {
     text-align: center;
@@ -422,17 +447,45 @@ footer {
     border-top: 1px solid #1e293b;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .hero-grid, .about-wrapper, .contact-wrapper {
-        grid-template-columns: 1fr;
+/* ============================================ */
+/* RESPONSIVE DESIGN - OPTIMIZED */
+/* ============================================ */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
     }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-text h2,
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .stats-grid {
+        justify-content: center;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile (576px - 768px) */
+@media (max-width: 768px) {
+    /* Navigation */
     .nav-menu {
         display: none;
     }
+    
     .hamburger {
         display: flex;
     }
+    
     .nav-menu.active {
         display: flex;
         flex-direction: column;
@@ -443,8 +496,314 @@ footer {
         top: 70px;
         left: 0;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 99;
     }
+    
+    .nav-menu.active li {
+        padding: 10px 0;
+    }
+    
+    .nav-cta {
+        display: none;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 50px 0;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-outline {
+        text-align: center;
+    }
+    
+    .hero-stats {
+        justify-content: space-around;
+        gap: 20px;
+    }
+    
+    .hero-stats div strong {
+        font-size: 1.5rem;
+    }
+    
+    /* About Section */
+    .about {
+        padding: 50px 0;
+    }
+    
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    /* Courses Section */
+    .courses {
+        padding: 50px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .course-card {
+        padding: 24px;
+    }
+    
+    /* Stats Section */
+    .stats {
+        padding: 50px 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .salary-stats {
+        padding: 24px;
+    }
+    
+    .salary-stats h3 {
+        font-size: 1.2rem;
+    }
+    
+    .salary-items {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .salary-items div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .salary-items strong {
+        font-size: 1.2rem;
+        margin-left: 0;
+    }
+    
+    /* Why Us Section */
+    .why-us {
+        padding: 50px 0;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature {
+        padding: 24px;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+        padding: 50px 0;
+    }
+    
+    .testimonial-slider {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial {
+        max-width: 100%;
+        padding: 24px;
+    }
+    
+    /* Contact Section */
+    .contact {
+        padding: 50px 0;
+    }
+    
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 24px;
+    }
+    
+    .contact-info h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-about .logo {
+        justify-content: center;
+    }
+    
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .social-icons a {
+        margin-right: 0;
+    }
+}
+
+/* Small Mobile (320px - 576px) */
+@media (max-width: 576px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .hero-stats div {
+        text-align: center;
+    }
+    
+    .about-text h2,
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .course-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .price {
+        font-size: 1.2rem;
+    }
+    
+    .contact-form input,
+    .contact-form select {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-primary,
+    .btn-outline {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .feature h3 {
+        font-size: 1.2rem;
+    }
+    
+    .feature p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation fix for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero-grid {
+        gap: 20px;
+    }
+    
+    .about-wrapper {
+        gap: 20px;
+    }
+}
+
+/* Large screens (1400px+) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Print styles (optional) */
+@media print {
+    .navbar,
+    .contact-form,
+    .footer-social,
+    .nav-cta {
+        display: none;
+    }
+    
+    body {
+        color: black;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Animation for hamburger menu */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
